@@ -1,17 +1,17 @@
 {
   "hero": {
-    "heading": "Bread the way it used to be.",
-    "subheading": "Naturally leavened, milled-in-house, and baked in small batches every morning.",
+    "heading": "Donuts worth waking up for.",
+    "subheading": "Made from scratch daily — hand-rolled, fried to golden, and glazed fresh every morning.",
     "ctaLabel": "See the Menu",
     "ctaHref": "/menu"
   },
-  "bestSellers": ["sourdough-country", "cardamom-bun", "brown-butter-cookie"],
+  "bestSellers": ["glazed-old-fashioned", "maple-bacon", "cookies-cream"],
   "storefront": {
-    "caption": "Our Elm Street storefront, open Tuesday through Saturday."
+    "caption": "Our Elm Street shop, open Tuesday through Saturday."
   },
   "testimonials": [
-    { "quote": "The best sourdough I've had outside of Europe.", "author": "Priya N." },
-    { "quote": "Their cardamom buns sell out by 9am for a reason.", "author": "Marcus T." },
-    { "quote": "Consistently excellent, every single visit.", "author": "Dana R." }
+    { "quote": "The best old-fashioned glazed I've had in years.", "author": "Priya N." },
+    { "quote": "Their maple bacon bar sells out before 8am for a reason.", "author": "Marcus T." },
+    { "quote": "Consistently fresh, every single visit.", "author": "Dana R." }
   ]
 }

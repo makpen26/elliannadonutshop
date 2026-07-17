@@ -1,0 +1,7 @@
+{
+  "id": "cold-brew",
+  "name": "Cold Brew",
+  "description": "Slow-steeped for 18 hours, served over ice.",
+  "price": 3.5,
+  "category": "drinks"
+}

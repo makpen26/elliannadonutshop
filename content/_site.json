@@ -1,12 +1,12 @@
 {
-  "name": "Wildflour Bakery",
-  "tagline": "Slow-fermented bread, baked before sunrise.",
+  "name": "Ellianna's Donut Shop",
+  "tagline": "Hand-rolled, glazed fresh every morning.",
   "phone": "(573) 555-0148",
-  "email": "hello@wildflourbakery.com",
+  "email": "hello@elliannasdonuts.com",
   "address": "214 Elm Street, Columbia, MO 65201",
   "hours": [
-    { "days": "Tue \u2013 Fri", "time": "7:00am \u2013 6:00pm" },
-    { "days": "Saturday", "time": "8:00am \u2013 4:00pm" },
+    { "days": "Tue \u2013 Fri", "time": "6:00am \u2013 3:00pm" },
+    { "days": "Saturday", "time": "7:00am \u2013 2:00pm" },
     { "days": "Sunday \u2013 Monday", "time": "Closed" }
   ],
   "social": [
