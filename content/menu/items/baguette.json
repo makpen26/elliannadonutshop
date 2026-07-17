@@ -1,0 +1,7 @@
+{
+  "id": "baguette",
+  "name": "Classic Baguette",
+  "description": "Crisp shell, open airy crumb, baked twice daily.",
+  "price": 5.0,
+  "category": "breads"
+}

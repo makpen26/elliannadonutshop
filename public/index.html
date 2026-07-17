@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wildflour Bakery</title>
+</head>
+<body>
+  <!-- Mount point. Every page in the SPA is rendered into this node. -->
+  <div id="app"></div>
+
+  <!--
+    Static, hidden form used ONLY so that build-time form-detection
+    services (e.g. Netlify Forms) can discover the field set at deploy
+    time by scanning the static HTML. The real contact form in the SPA
+    is built dynamically in JS and submits to this same form name via
+    fetch(); this stub is never shown to users and never receives focus.
+  -->
+  <form name="contact" data-netlify="true" hidden aria-hidden="true">
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
+</body>
+</html>

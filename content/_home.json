@@ -1,0 +1,17 @@
+{
+  "hero": {
+    "heading": "Bread the way it used to be.",
+    "subheading": "Naturally leavened, milled-in-house, and baked in small batches every morning.",
+    "ctaLabel": "See the Menu",
+    "ctaHref": "/menu"
+  },
+  "bestSellers": ["sourdough-country", "cardamom-bun", "brown-butter-cookie"],
+  "storefront": {
+    "caption": "Our Elm Street storefront, open Tuesday through Saturday."
+  },
+  "testimonials": [
+    { "quote": "The best sourdough I've had outside of Europe.", "author": "Priya N." },
+    { "quote": "Their cardamom buns sell out by 9am for a reason.", "author": "Marcus T." },
+    { "quote": "Consistently excellent, every single visit.", "author": "Dana R." }
+  ]
+}

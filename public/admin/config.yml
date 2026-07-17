@@ -1,0 +1,192 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# ──────────────────────────────────────────────────────────────────────────────
+# Sveltia CMS Configuration — Wildflour Bakery
+# ──────────────────────────────────────────────────────────────────────────────
+# Before deploying:
+#   1. Set backend.repo to your GitHub repository ("owner/repo").
+#   2. Set backend.branch to your deployment branch.
+#   3. Deploy an OAuth proxy worker (sveltia-cms-auth) and set
+#      backend.base_url to your worker URL.
+#   4. For local development, add `local: true` under backend.
+# See: https://sveltiacms.app/en/docs/start
+# ──────────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: github
+  repo: makpen26/elliannadonutshop # TODO: set to your GitHub repo
+  branch: main                   # TODO: set to your deployment branch
+  # base_url: https://your-auth-worker.workers.dev  # TODO: uncomment with OAuth proxy URL
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  # ── Site Settings ──────────────────────────────────────────────────────────
+  - name: "site"
+    label: "Site Settings"
+    description: "Bakery name, contact info, hours of operation, and social links."
+    files:
+      - name: "site"
+        label: "Site Settings"
+        file: "content/_site.json"
+        extension: json
+        format: json
+        fields:
+          - { name: "name", label: "Bakery Name", widget: "string" }
+          - { name: "tagline", label: "Tagline", widget: "string" }
+          - { name: "phone", label: "Phone", widget: "string" }
+          - { name: "email", label: "Email", widget: "string" }
+          - { name: "address", label: "Address", widget: "text" }
+          - name: "hours"
+            label: "Business Hours"
+            widget: "list"
+            summary: "{{fields.days}}: {{fields.time}}"
+            fields:
+              - { name: "days", label: "Days", widget: "string" }
+              - { name: "time", label: "Time", widget: "string" }
+          - name: "social"
+            label: "Social Links"
+            widget: "list"
+            summary: "{{fields.label}}"
+            fields:
+              - { name: "label", label: "Label", widget: "string" }
+              - { name: "url", label: "URL", widget: "string" }
+
+  # ── Home Page ──────────────────────────────────────────────────────────────
+  - name: "home"
+    label: "Home Page"
+    description: "Hero section, best-seller IDs, storefront caption, and customer testimonials."
+    files:
+      - name: "home"
+        label: "Home Page Content"
+        file: "content/_home.json"
+        extension: json
+        format: json
+        fields:
+          - name: "hero"
+            label: "Hero Section"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Heading", widget: "string" }
+              - { name: "subheading", label: "Subheading", widget: "text" }
+              - { name: "ctaLabel", label: "CTA Button Label", widget: "string" }
+              - { name: "ctaHref", label: "CTA Button Link", widget: "string" }
+          - name: "bestSellers"
+            label: "Best Seller IDs"
+            widget: "list"
+            hint: "Item IDs to feature on the home page (e.g. sourdough-country)"
+            field: { name: "id", label: "Item ID", widget: "string" }
+          - name: "storefront"
+            label: "Storefront Image"
+            widget: "object"
+            fields:
+              - { name: "caption", label: "Caption", widget: "string" }
+          - name: "testimonials"
+            label: "Testimonials"
+            widget: "list"
+            summary: "{{fields.author}}"
+            fields:
+              - { name: "quote", label: "Quote", widget: "text" }
+              - { name: "author", label: "Author", widget: "string" }
+
+  # ── About Page ─────────────────────────────────────────────────────────────
+  - name: "about"
+    label: "About Page"
+    description: "The bakery's story in your own words."
+    files:
+      - name: "about"
+        label: "About Page Content"
+        file: "content/_about.json"
+        extension: json
+        format: json
+        fields:
+          - name: "story"
+            label: "Our Story"
+            widget: "object"
+            fields:
+              - { name: "heading", label: "Heading", widget: "string" }
+              - name: "paragraphs"
+                label: "Paragraphs"
+                widget: "list"
+                field: { name: "paragraph", label: "Paragraph", widget: "text" }
+
+  # ── Contact Page ───────────────────────────────────────────────────────────
+  - name: "contact"
+    label: "Contact Page"
+    description: "Contact page heading and intro blurb."
+    files:
+      - name: "contact"
+        label: "Contact Page Content"
+        file: "content/_contact.json"
+        extension: json
+        format: json
+        fields:
+          - { name: "heading", label: "Heading", widget: "string" }
+          - { name: "blurb", label: "Blurb", widget: "text" }
+
+  # ── Dashboard Settings ─────────────────────────────────────────────────────
+  - name: "dashboard"
+    label: "Dashboard Settings"
+    description: "Tips and reminders shown on the staff dashboard."
+    files:
+      - name: "dashboard"
+        label: "Dashboard Settings"
+        file: "content/_dashboard.json"
+        extension: json
+        format: json
+        fields:
+          - name: "businessAdviceFiller"
+            label: "Quick Reminders"
+            widget: "list"
+            hint: "Staff reminders shown on the dashboard"
+            field: { name: "tip", label: "Tip", widget: "text" }
+
+  # ── Menu Categories ───────────────────────────────────────────────────────
+  - name: "menu_categories"
+    label: "Menu Categories"
+    description: "Categories that group menu items (e.g. Breads, Pastries, Drinks)."
+    folder: "content/menu/categories"
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{id}}"
+    summary: "{{fields.name}}"
+    fields:
+      - { name: "id", label: "ID", widget: "string", hint: "Unique identifier, e.g. breads" }
+      - { name: "name", label: "Category Name", widget: "string" }
+
+  # ── Menu Items ─────────────────────────────────────────────────────────────
+  - name: "menu_items"
+    label: "Menu Items"
+    description: "Individual items sold at the bakery. Each item belongs to a category."
+    folder: "content/menu/items"
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{id}}"
+    summary: "{{fields.name}} — ${{fields.price}}"
+    fields:
+      - { name: "id", label: "ID", widget: "string", hint: "Unique identifier, e.g. sourdough-country" }
+      - { name: "name", label: "Item Name", widget: "string" }
+      - { name: "description", label: "Description", widget: "text" }
+      - { name: "price", label: "Price ($)", widget: "number", value_type: "float", min: 0, step: 0.25 }
+      - { name: "category", label: "Category", widget: "relation", collection: "menu_categories", search_fields: ["name"], value_field: "id", display_fields: ["name"] }
+
+  # ── Team Members ───────────────────────────────────────────────────────────
+  - name: "team"
+    label: "Team Members"
+    description: "Staff profiles displayed on the About page."
+    folder: "content/team"
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{id}}"
+    summary: "{{fields.name}} — {{fields.role}}"
+    fields:
+      - { name: "id", label: "ID", widget: "string", hint: "Unique identifier, e.g. amara" }
+      - { name: "name", label: "Full Name", widget: "string" }
+      - { name: "role", label: "Role", widget: "string" }
+      - { name: "bio", label: "Bio", widget: "text" }
