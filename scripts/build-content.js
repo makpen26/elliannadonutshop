@@ -3,6 +3,8 @@ const path = require('path');
 
 const CONTENT_DIR = path.resolve(__dirname, '..', 'content');
 const OUTPUT_PATH = path.resolve(__dirname, '..', 'src', 'data', 'content.json');
+const OUTPUT_DIR = path.dirname(OUTPUT_PATH);
+fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
 function readJSON(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
