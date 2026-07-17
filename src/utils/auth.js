@@ -9,7 +9,7 @@ function loadIdentity() {
       return;
     }
     const script = document.createElement('script');
-    script.src = 'https://cdn.netlify.com/netlify-identity-widget.js';
+    script.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
     script.async = true;
     script.onload = () => {
       identity = window.netlifyIdentity;
