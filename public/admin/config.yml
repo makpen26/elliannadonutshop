@@ -15,7 +15,7 @@ backend:
   name: github
   repo: makpen26/elliannadonutshop # TODO: set to your GitHub repo
   branch: main                   # TODO: set to your deployment branch
-  # base_url: https://your-auth-worker.workers.dev  # TODO: uncomment with OAuth proxy URL
+  base_url: https://elliannadonut.makarapenmpp.workers.dev  # TODO: uncomment with OAuth proxy URL
 
 media_folder: public/images
 public_folder: /images
